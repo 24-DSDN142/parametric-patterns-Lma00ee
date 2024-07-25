@@ -1,29 +1,19 @@
 //your parameter variables go here!
 let circleX = 100
 let circleY = 100
-let circleS = 50
+let circleS = 50 //head size 
 
-let feetellipseY = 440 
-let feetellipseX = 250 
-let feetwidth = 70
+let earX = circleX-20
+let earY = circleY-20
+let earS = 20 //ear size 
 
-let handX = 255
-let handY = 320
-let handW = 30
-let handH = 60
+let eyeX = circleX-10
+let eyeY = circleY
+let eyeS = 5 //eye size 
 
-let stomX = 300 
-let stomY = 350 
-let stomW = 100 
-let stomH = 150
+let noseX = 100
+let noseY = noseX
 
-let earX = 80
-let earY = 80
-let earS = 20 
-
-let eyeX = 90
-let eyeY = 100
-let eyeS = 5
 
 
 function setup_wallpaper(pWallpaper) {
@@ -47,25 +37,30 @@ function my_symbol() { // do not rename this function. Treat this similarly to a
 stroke(1);
 fill (105, 89, 83); //brown 
 circle (earX, earY, earS) //left ear
-circle (earX+40, earY, earS) //right ear
+circle (earX+40, earY, earS) //right ear, earX 120
 
-//pink inner ear 
-fill (237, 178, 223); //pink inner ear 
+//inner ear 
 noStroke();
+fill (237, 178, 223); //pink inner ear 
 circle (earX, earY, earS-10) //left ear 
-circle (earX+40, earY, earS-10) //right ear 
+circle (earX+40, earY, earS-10) //right ear, earS10 
 
 //head  
-  fill (105, 89, 83); //brown 
   stroke(1);
-  circle (circleX, circleY, circleS); // head overlapped body 
-  line (100, 100, 100, 105); //straight nose line
-  line (100, 105, 95, 110); //left nose line
-  line (100, 105, 105, 110); //right nose line 
-
+  fill (105, 89, 83); //brown
+  circle (circleX, circleY, circleS); // head overlapped body
+  
+  //nose 
+  stroke(1);
+  line (noseX, noseY, noseX, noseY+5); //straight nose line 100, 100, 100, 105
+  line (noseX, noseY+5,noseX-5, noseY+10); //left nose line 100, 105, 95, 110
+  line (noseX, noseY+5, noseX+5, noseY+10); //right nose line 100, 105, 105, 110
 
 //eyes
+stroke(1)
 fill (0);
 circle (eyeX, eyeY, eyeS) //left eye 
-circle (eyeX+20, eyeY, eyeS) //right eye 
+circle (eyeX+20, eyeY, eyeS) //right eye, eyeX 110
+
+
 }
