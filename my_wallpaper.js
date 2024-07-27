@@ -2,6 +2,10 @@
   let circleX = 100
   let circleY = circleX
   let circleS = circleX-50 //head size 
+
+  let bowX = 100
+  let bowY = bowX
+  let bowS = 5
   
 
 function setup_wallpaper(pWallpaper) {
@@ -13,6 +17,8 @@ function setup_wallpaper(pWallpaper) {
   pWallpaper.grid_settings.cell_width  = 200;
   pWallpaper.grid_settings.cell_height = 200;
   pWallpaper.grid_settings.row_offset  = 50;
+
+  // angleMode(DEGREES)
 }
 
 function wallpaper_background() {
@@ -23,8 +29,37 @@ function my_symbol() { // do not rename this function. Treat this similarly to a
   bearHead(circleX, circleY);
   // bearHead (50, 50,)
   // bearHead (150, 150)
+  bow();
+
+
 
 }
+
+function bow () {
+  //right bow 
+  rotate (PI-3)
+  beginShape()
+  fill (255, 0, 0); //red for now
+  curveVertex (bowX, bowX-25);
+  curveVertex (bowX, bowX-25)
+  curveVertex (bowX+10, bowX-30);
+  curveVertex (bowX+10, bowX-20);
+  endShape(CLOSE)
+  
+  //left bow 
+  beginShape()
+  curveVertex (bowX, bowX-25);
+  curveVertex (bowX, bowX-25);
+  curveVertex (bowX-10, bowX-30);
+  curveVertex (bowX-10, bowX-20);
+  endShape(CLOSE)
+  
+  //bow circle 
+  stroke (1)
+  fill (255, 0, 0);
+  circle (bowX, bowY-25, bowS)
+  
+  }
 function bearHead (circleX, circleY){ 
   
   let earX = circleX-20
@@ -65,37 +100,13 @@ fill (0);
 circle (eyeX, eyeY, eyeS) //left eye 
 circle (eyeX+20, eyeY, eyeS) //right eye, eyeX 110
 
-//right bow 
-beginShape()
-fill (255, 0, 0); //red for now
-curveVertex (100, 75);
-curveVertex (100, 75)
-curveVertex (110, 70);
-curveVertex (110, 80);
-endShape(CLOSE)
-
-//left bow 
-beginShape()
-curveVertex (100, 75);
-curveVertex (100, 75);
-curveVertex (90, 70);
-curveVertex (90, 80);
-endShape(CLOSE)
-
-//bow circle 
-stroke (1)
-fill (255, 0, 0);
-circle (circleX, circleY-25, 5)
-
-
-
 // stroke(1);
 // line (85, 100, 90, 100);
 // line (110, 100, 115, 100);
 
-
-
 }
+
+
 
 
 
