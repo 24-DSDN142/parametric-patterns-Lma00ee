@@ -5,7 +5,11 @@
 
   let bowX = 100
   let bowY = bowX
-  let bowS = 5
+  let bowS = bowX-95
+
+  // let bowX = 55
+  // let bowY = 130
+  // let bowS = bowX-50
   
 
 function setup_wallpaper(pWallpaper) {
@@ -18,7 +22,7 @@ function setup_wallpaper(pWallpaper) {
   pWallpaper.grid_settings.cell_height = 200;
   pWallpaper.grid_settings.row_offset  = 50;
 
-  // angleMode(DEGREES)
+  angleMode(DEGREES)
 }
 
 function wallpaper_background() {
@@ -29,29 +33,36 @@ function my_symbol() { // do not rename this function. Treat this similarly to a
   bearHead(circleX, circleY);
   // bearHead (50, 50,)
   // bearHead (150, 150)
-  bow();
+  bow(bowX, bowY);
+
+  // rotate(-20)
+  // bow(45, 135);
+
+  // rotate(40)
+  // bow (145, 65)
 
 
 
 }
 
-function bow () {
+function bow (bowX, bowY) {
   //right bow 
-  rotate (PI-3)
+  // rotate (-20)
+
   beginShape()
   fill (255, 0, 0); //red for now
-  curveVertex (bowX, bowX-25);
-  curveVertex (bowX, bowX-25)
-  curveVertex (bowX+10, bowX-30);
-  curveVertex (bowX+10, bowX-20);
+  curveVertex (bowX, bowY-25);
+  curveVertex (bowX, bowY-25)
+  curveVertex (bowX+10, bowY-30);
+  curveVertex (bowX+10, bowY-20);
   endShape(CLOSE)
   
   //left bow 
   beginShape()
-  curveVertex (bowX, bowX-25);
-  curveVertex (bowX, bowX-25);
-  curveVertex (bowX-10, bowX-30);
-  curveVertex (bowX-10, bowX-20);
+  curveVertex (bowX, bowY-25);
+  curveVertex (bowX, bowY-25);
+  curveVertex (bowX-10, bowY-30);
+  curveVertex (bowX-10, bowY-20);
   endShape(CLOSE)
   
   //bow circle 
