@@ -21,12 +21,8 @@ function wallpaper_background() {
 
 function my_symbol() { // do not rename this function. Treat this similarly to a Draw function
   bearHead(circleX, circleY);
-  bearHead (50, 50,)
-  bearHead (150, 100)
-
-
-
-
+  // bearHead (50, 50,)
+  // bearHead (150, 150)
 
 }
 function bearHead (circleX, circleY){ 
@@ -69,11 +65,39 @@ fill (0);
 circle (eyeX, eyeY, eyeS) //left eye 
 circle (eyeX+20, eyeY, eyeS) //right eye, eyeX 110
 
+//right bow 
+beginShape()
+fill (255, 0, 0); //red for now
+curveVertex (100, 75);
+curveVertex (100, 75)
+curveVertex (110, 70);
+curveVertex (110, 80);
+endShape(CLOSE)
+
+//left bow 
+beginShape()
+curveVertex (100, 75);
+curveVertex (100, 75);
+curveVertex (90, 70);
+curveVertex (90, 80);
+endShape(CLOSE)
+
+//bow circle 
+stroke (1)
+fill (255, 0, 0);
+circle (circleX, circleY-25, 5)
+
+
+
 // stroke(1);
 // line (85, 100, 90, 100);
 // line (110, 100, 115, 100);
 
+
+
 }
+
+
 
 
 
