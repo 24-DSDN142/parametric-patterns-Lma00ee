@@ -7,6 +7,7 @@
   let bowY = bowX
   let bowS = bowX-95
 
+  //rotated bow?
   // let bowX = 55
   // let bowY = 130
   // let bowS = bowX-50
@@ -31,7 +32,6 @@ function wallpaper_background() {
 
 function my_symbol() { // do not rename this function. Treat this similarly to a Draw function
   bearHead(circleX, circleY);
-  bearHead(100, 150);
   // bearHead (50, 50,)
   // bearHead (150, 150)
   bow(bowX, bowY);
@@ -41,7 +41,6 @@ function my_symbol() { // do not rename this function. Treat this similarly to a
 
   // rotate(40)
   // bow (145, 65)
-
 
 
 }
@@ -103,6 +102,10 @@ circle (earX+40, earY, earS-10) //right ear, earS10
   fill (105, 89, 83); //brown
   circle (circleX, circleY, circleS); // head overlapped body
   
+// nose snout round circle 
+ noStroke();
+ fill(252, 237, 225);
+ circle (noseX, noseY+6, 15) 
 
   // straight nose 
   // stroke(1);
@@ -118,7 +121,7 @@ circle (earX+40, earY, earS-10) //right ear, earS10
 //left curved nose line 
   beginShape(line)
   stroke(1)
-  fill (105, 89, 83);
+  fill (252, 237, 225);
 curveVertex (noseX-10,noseY-15);
 curveVertex(noseX-5, noseY+9);
 curveVertex (noseX, noseY+5);
@@ -128,7 +131,7 @@ endShape()
 //right curved nose line 
 beginShape(line)
 stroke(1)
-fill (105, 89, 83);
+fill (252, 237, 225);
 curveVertex (noseX+10, noseY-15);
 curveVertex(noseX+5, noseY+9);
 curveVertex (noseX, noseY+5);
@@ -138,7 +141,7 @@ endShape()
 //curved triangular nose
 beginShape()
 stroke(1);
-fill (255)
+fill (0)
 curveVertex (noseX, noseY+5)
 curveVertex (noseX-3, noseY+2)
 curveVertex (noseX+3, noseY+2)
@@ -150,7 +153,11 @@ endShape(CLOSE)
 // fill (255);
 // circle (noseX, noseY+3, 4)
 
-
+//blush
+noStroke()
+fill(237, 178, 223)
+ellipse (87, 106, 7, 4) // left 
+ellipse (113, 106, 7, 4) // right 
 
 // eyes
 stroke(1)
