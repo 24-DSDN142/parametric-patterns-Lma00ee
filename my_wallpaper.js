@@ -1,11 +1,11 @@
 //your parameter variables go here!
   let circleX = 100
-  let circleY = circleX
-  let circleS = circleX-50 //head size 
+  let circleY = circleX //100 
+  let circleS = circleX-50 //head size, 50
 
   let bowX = 100
-  let bowY = bowX
-  let bowS = bowX-95
+  let bowY = bowX //100
+  let bowS = bowX-95 // 5 
 
   //rotated bow?
   // let bowX = 55
@@ -76,12 +76,12 @@ function bearHead (circleX, circleY){
   
   let earX = circleX-20
   let earY = circleY-20
-  let earS = 20 //ear size 
+  let earS = 20 //ear size, 80 
 
   let noseX = circleX
   let noseY = circleY
 
-  let eyeX = circleX-10
+  let eyeX = circleX-10 //90 
   let eyeY = circleY
   let eyeS = 5 //eye size 
   
@@ -155,10 +155,12 @@ endShape(CLOSE)
 
 //blush
 noStroke()
-fill(237, 178, 223)
+fill(237, 178, 223) //pink 
 ellipse (87, 106, 7, 4) // left 
 ellipse (113, 106, 7, 4) // right 
 
+//closed eyes 
+if (eyeS <= 5) {
 // eyes
 stroke(1)
 fill (0);
@@ -170,13 +172,15 @@ noStroke()
 fill(255);
 circle (eyeX-1, eyeY-1, eyeS-3)
 circle (eyeX+19, eyeY-1, eyeS-3) //right eye, eyeX 11
-
-//closed eyes 
-// stroke(1);
-// line (85, 100, 90, 100);
-// line (110, 100, 115, 100);
+}
+else { 
+  stroke(1);
+  line (eyeX-5, eyeY, eyeX+2, eyeY); //85, 100, 92, 100
+  line (eyeX+18, eyeY, eyeX+25, eyeY); //108, 100, 115, 100
+}
 
 }
+
 
 
 
