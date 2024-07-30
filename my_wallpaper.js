@@ -7,6 +7,7 @@
   let bowY = bowX //100
   let bowS = bowX-95 // 5 
 
+
   //rotated bow?
   // let bowX = 55
   // let bowY = 130
@@ -14,27 +15,46 @@
   
 
 function setup_wallpaper(pWallpaper) {
-  pWallpaper.output_mode(DEVELOP_GLYPH);
-  pWallpaper.resolution(FIT_TO_SCREEN);
-  pWallpaper.show_guide(true); //set this to false when you're ready to print
+  pWallpaper.output_mode(GRID_WALLPAPER);
+  pWallpaper.resolution(NINE_PORTRAIT);
+  pWallpaper.show_guide(false); //set this to false when you're ready to print
 
   //Grid settings
-  pWallpaper.grid_settings.cell_width  = 200;
-  pWallpaper.grid_settings.cell_height = 200;
-  pWallpaper.grid_settings.row_offset  = 50;
+  pWallpaper.grid_settings.cell_width  = 180;
+  pWallpaper.grid_settings.cell_height = 170;
+  pWallpaper.grid_settings.row_offset  = 0;
 
   angleMode(DEGREES)
 }
 
 function wallpaper_background() {
-  background(240, 255, 240); //light honeydew green colour
+  background(247, 200, 181); //light creamish skin tone colour
+
 }
 
 function my_symbol() { // do not rename this function. Treat this similarly to a Draw function
-  bearHead(circleX, circleY);
-  // bearHead (50, 50,)
-  // bearHead (150, 150)
-  bow(bowX, bowY);
+ 
+  //checkered background, transparent  
+ noStroke()
+ fill (255, 112, 155, 70) //light pink, slightly transparent
+ rect (25, 0, 35, 200) // left vertical line 
+ rect (140, 0, 35, 200) //right vertical line
+ rect (0, 30, 200, 35) //top horizontal line
+ rect (0, 130, 200, 35) //bottom horizontal line
+  
+ //middle bear head 
+  bearHead(circleX, circleY); // middle bear head 
+  bow(bowX, bowY+50); // bow of middle bear 
+
+  //top left bear head 
+  bearHead (50, 50,) // top left bear head 
+  bow(50, 50); // bow of top left bear 
+
+  //bottom right bear head
+  bearHead (150, 150) // bottom right bear head 
+  
+
+
 
   // rotate(-20)
   // bow(45, 135);
@@ -43,15 +63,16 @@ function my_symbol() { // do not rename this function. Treat this similarly to a
   // bow (145, 65)
 
 
+
+
+
 }
 
 function bow (bowX, bowY) {
   //right bow 
-  // rotate (-20)
-
   beginShape()
- stroke(1);
-  fill (255, 0, 0); //red for now
+  stroke(1);
+  fill (237, 36, 36); //red for now
   curveVertex (bowX, bowY-25);
   curveVertex (bowX, bowY-25)
   curveVertex (bowX+10, bowY-30);
@@ -68,12 +89,12 @@ function bow (bowX, bowY) {
   
   //bow circle 
   stroke (1)
-  fill (255, 0, 0);
+  fill (237, 36, 36);
   circle (bowX, bowY-25, bowS)
   
   }
 function bearHead (circleX, circleY){ 
-  
+
   let earX = circleX-20
   let earY = circleY-20
   let earS = 20 //ear size, 80 
@@ -84,28 +105,34 @@ function bearHead (circleX, circleY){
   let eyeX = circleX-10 //90 
   let eyeY = circleY
   let eyeS = 5 //eye size 
+
+  // for the blushes 
+  let ellipseX = circleX-13
+  let ellipseY = circleY +6
+  let ellipseW = circleS -43 
+  let ellipseH = 4
   
 //ear
 stroke(1);
-fill (105, 89, 83); //brown 
+fill (207, 153, 116); //brown of the bear/face
 circle (earX, earY, earS) //left ear
 circle (earX+40, earY, earS) //right ear, earX 120
 
 //inner ear 
 noStroke();
-fill (237, 178, 223); //pink inner ear 
+fill (181, 118, 89); //slightly darker brown inner ear 
 circle (earX, earY, earS-10) //left ear 
 circle (earX+40, earY, earS-10) //right ear, earS10 
 
 //head  
-  stroke(1);
-  fill (105, 89, 83); //brown
-  circle (circleX, circleY, circleS); // head overlapped body
+stroke(1);
+fill (207, 153, 116); //brown
+circle (circleX, circleY, circleS); // head overlapped body
   
-// nose snout round circle 
- noStroke();
- fill(252, 237, 225);
- circle (noseX, noseY+6, 15) 
+// lighter-coloured rounded nose snout circle 
+noStroke();
+fill(255, 220, 189); //light beigish creamish brown
+circle (noseX, noseY+6, 15) 
 
   // straight nose 
   // stroke(1);
@@ -115,13 +142,13 @@ circle (earX+40, earY, earS-10) //right ear, earS10
 
   //curved nose 
 //straight nose line for curved nose 
-  stroke(1);
-  line (noseX, noseY+3, noseX, noseY+5);
+stroke(1);
+line (noseX, noseY+3, noseX, noseY+5);
 
 //left curved nose line 
-  beginShape(line)
-  stroke(1)
-  fill (252, 237, 225);
+beginShape(line)
+stroke(1)
+fill (255, 220, 189); //light beigish creamish brown, same as nose snout colour
 curveVertex (noseX-10,noseY-15);
 curveVertex(noseX-5, noseY+9);
 curveVertex (noseX, noseY+5);
@@ -131,7 +158,7 @@ endShape()
 //right curved nose line 
 beginShape(line)
 stroke(1)
-fill (252, 237, 225);
+fill (255, 220, 189); //light beigish creamish brown, same as nose snout colour
 curveVertex (noseX+10, noseY-15);
 curveVertex(noseX+5, noseY+9);
 curveVertex (noseX, noseY+5);
@@ -148,18 +175,18 @@ curveVertex (noseX+3, noseY+2)
 curveVertex (noseX, noseY+5)
 endShape(CLOSE)
 
-// //circle nose 
+//circle nose 
 // stroke(1);
 // fill (255);
 // circle (noseX, noseY+3, 4)
 
 //blush
 noStroke()
-fill(237, 178, 223) //pink 
-ellipse (87, 106, 7, 4) // left 
-ellipse (113, 106, 7, 4) // right 
+fill(242, 90, 110) //pink 
+ellipse (ellipseX, ellipseY, ellipseW, ellipseH) // left, 87, 106, 7, 4 
+ellipse (ellipseX+26, ellipseY, ellipseW, ellipseH) // right 113, 106, 7, 4
 
-//closed eyes 
+
 if (eyeS <= 5) {
 // eyes
 stroke(1)
@@ -174,6 +201,7 @@ circle (eyeX-1, eyeY-1, eyeS-3)
 circle (eyeX+19, eyeY-1, eyeS-3) //right eye, eyeX 11
 }
 else { 
+  //closed eyes 
   stroke(1);
   line (eyeX-5, eyeY, eyeX+2, eyeY); //85, 100, 92, 100
   line (eyeX+18, eyeY, eyeX+25, eyeY); //108, 100, 115, 100

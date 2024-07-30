@@ -10,45 +10,244 @@ Your final settings.txt will look something like this when you are finished:
 Wallpaper 1:
 
 //your parameter variables go here!
-let rect_width  = 20;
-let rect_height = 20;
-let paramter1 = 10;
-let paramter2 = true;
-let paramter3 = 50; 
-let paramter4 = 0; 
-let paramter5 = 60;
+  let circleX = 100
+  let circleY = circleX //100 
+  let circleS = circleX-50 //head size, 50
+
+  let bowX = 100
+  let bowY = bowX //100
+  let bowS = bowX-95 // 5 
+  
 
 function setup_wallpaper(pWallpaper) {
   pWallpaper.output_mode(GRID_WALLPAPER);
-  pWallpaper.resolution(NINE_LANDSCAPE);
+  pWallpaper.resolution(NINE_PORTRAIT);
   pWallpaper.show_guide(false); //set this to false when you're ready to print
 
   //Grid settings
-  pWallpaper.grid_settings.cell_width  = 100;
-  pWallpaper.grid_settings.cell_height = 100;
-  pWallpaper.grid_settings.row_offset  = 50;
+  pWallpaper.grid_settings.cell_width  = 200;
+  pWallpaper.grid_settings.cell_height = 200;
+  pWallpaper.grid_settings.row_offset  = 0;
+
 }
+
+function wallpaper_background() {
+  background(247, 200, 181); //light creamish skin tone colour
+
+}
+
+function my_symbol() { // do not rename this function. Treat this similarly to a Draw function
+ 
+  //checkered background, transparent  
+ noStroke()
+ fill (255, 112, 155, 70) //light pink, slightly transparent
+ rect (25, 0, 35, 200) // left vertical line 
+ rect (140, 0, 35, 200) //right vertical line
+ rect (0, 30, 200, 35) //top horizontal line
+ rect (0, 130, 200, 35) //bottom horizontal line
+  
+  bearHead(circleX, circleY); //bear head in the center/middle 
+
+  bow(bowX, bowY); //on top of head 
 
 /////////////////////////////////
 
 Wallpaper 2:
 
 //your parameter variables go here!
-let rect_width  = 10;
-let rect_height = 10;
-let paramter1 = 20;
-let paramter2 = false;
-let paramter3 = 50; 
-let paramter4 = 80; 
-let paramter5 = 30;
+  let circleX = 100
+  let circleY = circleX //100 
+  let circleS = circleX-50 //head size, 50
+
+  let bowX = 100
+  let bowY = bowX //100
+  let bowS = bowX-95 // 5 
+  
 
 function setup_wallpaper(pWallpaper) {
   pWallpaper.output_mode(GRID_WALLPAPER);
-  pWallpaper.resolution(NINE_LANDSCAPE);
+  pWallpaper.resolution(NINE_PORTRAIT);
   pWallpaper.show_guide(false); //set this to false when you're ready to print
 
   //Grid settings
-  pWallpaper.grid_settings.cell_width  = 100;
+  pWallpaper.grid_settings.cell_width  = 200;
+  pWallpaper.grid_settings.cell_height = 200;
+  pWallpaper.grid_settings.row_offset  = 0;
+
+}
+
+function wallpaper_background() {
+  background(247, 200, 181); //light creamish skin tone colour
+
+}
+
+function my_symbol() { // do not rename this function. Treat this similarly to a Draw function
+ 
+  //checkered background, transparent  
+ noStroke()
+ fill (255, 112, 155, 70) //light pink, slightly transparent
+ rect (25, 0, 35, 200) // left vertical line 
+ rect (140, 0, 35, 200) //right vertical line
+ rect (0, 30, 200, 35) //top horizontal line
+ rect (0, 130, 200, 35) //bottom horizontal line
+  
+  //middle bear head 
+  bearHead(circleX, circleY); // middle bear head 
+  bow(bowX, bowY); // bow of middle bear, on top of head 
+
+  //top left bear head 
+  bearHead (50, 50,); // top left bear head 
+  bow(50, 50); // bow of top left bear, on top of head 
+
+  //bottom right bear head 
+  bearHead (150, 150); // bottom right bear head 
+  bow (150, 150); // bow of bottom right bear, on top of head
+  
+
+/////////////////////////////////
+
+Wallpaper 3: 
+
+//your parameter variables go here!
+  let circleX = 100
+  let circleY = circleX //100 
+  let circleS = circleX-50 //head size, 50
+
+  let bowX = 100
+  let bowY = bowX //100
+  let bowS = bowX-95 // 5 
+  
+
+function setup_wallpaper(pWallpaper) {
+  pWallpaper.output_mode(GRID_WALLPAPER);
+  pWallpaper.resolution(NINE_PORTRAIT);
+  pWallpaper.show_guide(false); //set this to false when you're ready to print
+
+  //Grid settings
+  pWallpaper.grid_settings.cell_width  = 200;
+  pWallpaper.grid_settings.cell_height = 200;
+  pWallpaper.grid_settings.row_offset  = 0;
+
+}
+
+function wallpaper_background() {
+  background(247, 200, 181); //light creamish skin tone colour
+
+}
+
+function my_symbol() { // do not rename this function. Treat this similarly to a Draw function
+ 
+  //checkered background, transparent  
+ noStroke()
+ fill (255, 112, 155, 70) //light pink, slightly transparent
+ rect (25, 0, 35, 200) // left vertical line 
+ rect (140, 0, 35, 200) //right vertical line
+ rect (0, 30, 200, 35) //top horizontal line
+ rect (0, 130, 200, 35) //bottom horizontal line
+
+  //middle bear head 
+  bearHead(circleX, circleY); // middle bear head 
+  bow(bowX, bowY); // bow of middle bear, on top of head 
+
+  //top left bear head 
+  bearHead (50, 50,); // top left bear head 
+  bow(50, 100); // bow of top left bear, beckbow 
+
+  //bottom right bear head 
+  bearHead (150, 150); // bottom right bear head 
+  bow (150, 200); // bow of bottom right bear, neckbow  
+
+/////////////////////////////////
+
+Wallpaper 4: 
+
+//your parameter variables go here!
+  let circleX = 100
+  let circleY = circleX //100 
+  let circleS = circleX-50 //head size, 50
+
+  let bowX = 100
+  let bowY = bowX //100
+  let bowS = bowX-95 // 5 
+
+function setup_wallpaper(pWallpaper) {
+  pWallpaper.output_mode(GRID_WALLPAPER);
+  pWallpaper.resolution(NINE_PORTRAIT);
+  pWallpaper.show_guide(false); //set this to false when you're ready to print
+
+  //Grid settings
+  pWallpaper.grid_settings.cell_width  = 180;
   pWallpaper.grid_settings.cell_height = 100;
   pWallpaper.grid_settings.row_offset  = 0;
+
 }
+
+
+function wallpaper_background() {
+  background(247, 200, 181); //light creamish skin tone colour
+
+}
+
+function my_symbol() { // do not rename this function. Treat this similarly to a Draw function
+ 
+  //checkered background, transparent  
+ noStroke()
+ fill (255, 112, 155, 70) //light pink, slightly transparent
+ rect (25, 0, 35, 200) // left vertical line 
+ rect (140, 0, 35, 200) //right vertical line
+ rect (0, 30, 200, 35) //top horizontal line
+ rect (0, 130, 200, 35) //bottom horizontal line
+  
+  
+  bearHead(circleX, circleY);
+
+  bow(bowX, bowY); // bow on top of head 
+  bow(60, 55); // left bow on bottom
+  bow (140, 90); // right bow on top 
+
+ ///////////////////////////////// 
+
+ Wallpaper 5:
+
+ //your parameter variables go here!
+  let circleX = 100
+  let circleY = circleX //100 
+  let circleS = circleX-50 //head size, 50
+
+  let bowX = 100
+  let bowY = bowX //100
+  let bowS = bowX-95 // 5 
+  
+
+function setup_wallpaper(pWallpaper) {
+  pWallpaper.output_mode(GRID_WALLPAPER);
+  pWallpaper.resolution(NINE_PORTRAIT);
+  pWallpaper.show_guide(false); //set this to false when you're ready to print
+
+  //Grid settings
+  pWallpaper.grid_settings.cell_width  = 200;
+  pWallpaper.grid_settings.cell_height = 200;
+  pWallpaper.grid_settings.row_offset  = 0;
+
+}
+
+function wallpaper_background() {
+  background(247, 200, 181); //light creamish skin tone colour
+
+}
+
+function my_symbol() { // do not rename this function. Treat this similarly to a Draw function
+ 
+  //checkered background, transparent  
+ noStroke()
+ fill (255, 112, 155, 70) //light pink, slightly transparent
+ rect (25, 0, 35, 200) // left vertical line 
+ rect (140, 0, 35, 200) //right vertical line
+ rect (0, 30, 200, 35) //top horizontal line
+ rect (0, 130, 200, 35) //bottom horizontal line
+  
+
+
+///////////////////////////////// 
+
+ Wallpaper 6: 
