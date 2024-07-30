@@ -20,9 +20,9 @@ function setup_wallpaper(pWallpaper) {
   pWallpaper.show_guide(false); //set this to false when you're ready to print
 
   //Grid settings
-  pWallpaper.grid_settings.cell_width  = 180;
-  pWallpaper.grid_settings.cell_height = 170;
-  pWallpaper.grid_settings.row_offset  = 0;
+  pWallpaper.grid_settings.cell_width  = 200;
+  pWallpaper.grid_settings.cell_height = 200;
+  pWallpaper.grid_settings.row_offset  = 100;
 
   angleMode(DEGREES)
 }
@@ -44,18 +44,21 @@ function my_symbol() { // do not rename this function. Treat this similarly to a
   
  //middle bear head 
   bearHead(circleX, circleY); // middle bear head 
-  bow(bowX, bowY+50); // bow of middle bear 
+  bow(bowX, bowY); // bow of middle bear 
 
-  //top left bear head 
-  bearHead (50, 50,) // top left bear head 
-  bow(50, 50); // bow of top left bear 
+  // //top left bear head 
+  // bearHead (50, 50,) // top left bear head 
+  // bow(50, 50); // bow of top left bear 
 
-  //bottom right bear head
-  bearHead (150, 150) // bottom right bear head 
+  // //bottom right bear head
+  // bearHead (150, 150) // bottom right bear head 
+  // bow (150, 150)
+
+  bow(43, 50); // top left
+  bow(141, 80); // top right
+  bow(43, 190); // bottom left 
+  bow(158, 160); // bottom right
   
-
-
-
   // rotate(-20)
   // bow(45, 135);
 
