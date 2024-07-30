@@ -22,7 +22,7 @@ function setup_wallpaper(pWallpaper) {
   //Grid settings
   pWallpaper.grid_settings.cell_width  = 200;
   pWallpaper.grid_settings.cell_height = 200;
-  pWallpaper.grid_settings.row_offset  = 100;
+  pWallpaper.grid_settings.row_offset  = 0;
 
   angleMode(DEGREES)
 }
@@ -42,22 +42,21 @@ function my_symbol() { // do not rename this function. Treat this similarly to a
  rect (0, 30, 200, 35) //top horizontal line
  rect (0, 130, 200, 35) //bottom horizontal line
   
+ //DOUBLE BOWS FOR ALL THREE
  //middle bear head 
   bearHead(circleX, circleY); // middle bear head 
-  bow(bowX, bowY); // bow of middle bear 
+  // bow(bowX, bowY); // headbow of middle bear 
+  bow (bowX, bowY+50); // neckbow
 
-  // //top left bear head 
-  // bearHead (50, 50,) // top left bear head 
-  // bow(50, 50); // bow of top left bear 
+  //top left bear head 
+  bearHead (50, 50,) // top left bear head 
+  bow(50, 50); // headbow of top left bear 
+  // bow(50, 100); //neckbow
 
-  // //bottom right bear head
-  // bearHead (150, 150) // bottom right bear head 
-  // bow (150, 150)
-
-  bow(43, 50); // top left
-  bow(141, 80); // top right
-  bow(43, 190); // bottom left 
-  bow(158, 160); // bottom right
+  //bottom right bear head
+  bearHead (150, 150); // bottom right bear head 
+  bow (150, 150); //bow on top of head
+  // bow (150, 200); //neckbow
   
   // rotate(-20)
   // bow(45, 135);
