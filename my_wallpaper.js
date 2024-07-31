@@ -5,15 +5,16 @@
 
   let bowX = 100
   let bowY = bowX // 100
-  let bowS = bowX-95 // bowX=5 
+  let bowCircle = 5 
+  
   
 
 
 function setup_wallpaper(pWallpaper) {
-  pWallpaper.output_mode(GRID_WALLPAPER);
-  pWallpaper.resolution(NINE_PORTRAIT);
-  // pWallpaper.output_mode(DEVELOP_GLYPH);
-  // pWallpaper.resolution(FIT_TO_SCREEN);
+  // pWallpaper.output_mode(GRID_WALLPAPER);
+  // pWallpaper.resolution(NINE_PORTRAIT);
+  pWallpaper.output_mode(DEVELOP_GLYPH);
+  pWallpaper.resolution(FIT_TO_SCREEN);
   pWallpaper.show_guide(false); //set this to false when you're ready to print
 
   //Grid settings
@@ -59,6 +60,8 @@ function my_symbol() { // do not rename this function. Treat this similarly to a
   // bow (150, 150); //headbow of bottom right bear 
   // // bow (150, 200); //neckbow
   
+  if (true) {
+  //bows on either side of head 
   //left bow 
   rotate(-20)
   bow(45, 135); 
@@ -66,6 +69,8 @@ function my_symbol() { // do not rename this function. Treat this similarly to a
   //right bow 
   rotate(40)
   bow (145, 65)
+
+  }
 
 
 
@@ -95,8 +100,10 @@ function bow (bowX, bowY) {
   //bow circle 
   stroke (1) 
   fill (237, 36, 36); //red 
-  circle (bowX, bowY-25, bowS) //bowY=75
+  circle (bowX, bowY-25, bowCircle) //bowY=75
+
   }
+
 function bearHead (circleX, circleY){ 
 
   let earX = circleX-20 //80, size of ear on x-axis
@@ -132,20 +139,19 @@ circle (earX+40, earY, earS-10) //right ear, earX=120, earS10
 stroke(1);
 fill (207, 153, 116); //brown
 circle (circleX, circleY, circleS); // head overlapped body, circleX=100, circleY=100, circleS=50
-  
+ 
+if (true) {
 // lighter-coloured rounded nose snout circle 
 noStroke();
 fill(255, 220, 189); //light beigish creamish brown
 circle (noseX, noseY+6, 15) //noseX=100, noseY=106, 15
 
-  // straight nose 
-  // stroke(1);
-  // line (circleX, circleY, circleX, circleY+5); //straight nose line 100, 100, 100, 105
-  // line (circleX, circleY+5,circleX-5, circleY+9); //left nose line 100, 105, 95, 110
-  // line (circleX, circleY+5, circleX+5, circleY+9); //right nose line 100, 105, 105, 110
+}
 
-  //curved nose 
-//straight nose line for curved nose 
+
+if (true) {
+//   curved nose 
+// straight nose line for curved nose 
 stroke(1);
 line (noseX, noseY+3, noseX, noseY+5); //100, 103, 100, 105
 
@@ -169,6 +175,9 @@ curveVertex (noseX, noseY+5); //100, 105
 curveVertex (noseX+10, noseY-10); //110, 90
 endShape()
 
+}
+
+if (true) {
 //curved triangular nose, downwards
 beginShape()
 stroke(1);
@@ -179,20 +188,27 @@ curveVertex (noseX+3, noseY+2) //103, 102
 curveVertex (noseX, noseY+5) //100, 105 
 endShape(CLOSE)
 
-//circle nose 
-// stroke(1);
-// fill (255);
-// circle (noseX, noseY+3, 4)
+}
 
-//blush
+if (false) {
+//ellipsed nose 
+stroke(1);
+fill (0); //black 
+ellipse (ellipseX+13, ellipseY-2, 6, 3)
+
+}
+
+if (true){
+//blush on cheeks
 noStroke()
 fill(242, 80, 96) //pink 
 ellipse (ellipseX, ellipseY, ellipseW, ellipseH) // left, 87, 106, 7, 4 
 ellipse (ellipseX+26, ellipseY, ellipseW, ellipseH) // right 113, 106, 7, 4
+}
 
 
 if (eyeS <= 5) {
-// eyes
+// eyes open 
 stroke(1)
 fill (0);
 circle (eyeX, eyeY, eyeS) //left eye 
@@ -204,6 +220,7 @@ fill(255);
 circle (eyeX-1, eyeY-1, eyeS-3) //left eye, 89, 99, 2
 circle (eyeX+19, eyeY-1, eyeS-3) //right eye, 99, 99, 2
 }
+
 else { 
   //closed eyes 
   stroke(1);
