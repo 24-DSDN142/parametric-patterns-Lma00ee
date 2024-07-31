@@ -537,3 +537,307 @@ function my_symbol() { // do not rename this function. Treat this similarly to a
   bearHead (150, 150); // bottom right bear head 
   bow (150, 150); //bow on top of head
   // bow (150, 200); //neckbow
+
+   ///////////////////////////////// 
+
+   Wallpaper 11: 
+
+  let circleX = 100
+  let circleY = circleX //100 
+  let circleS = circleX-50 //head size, 50
+
+  let bowX = 100
+  let bowY = bowX //100
+  let bowS = bowX-95 // 5 
+
+
+
+function setup_wallpaper(pWallpaper) {
+  pWallpaper.output_mode(GRID_WALLPAPER);
+  pWallpaper.resolution(NINE_PORTRAIT);
+  pWallpaper.show_guide(false); //set this to false when you're ready to print
+
+  //Grid settings
+  pWallpaper.grid_settings.cell_width  = 200;
+  pWallpaper.grid_settings.cell_height = 200;
+  pWallpaper.grid_settings.row_offset  = 0;
+
+}
+
+function wallpaper_background() {
+  // background(247, 200, 181); //light creamish skin tone colour
+  // background(255, 231, 209); //even lighter cream colour, for red checkered pattern
+  background(245, 218, 193);
+
+
+}  
+
+function my_symbol() { // do not rename this function. Treat this similarly to a Draw function
+ 
+  //checkered background, transparent  
+ noStroke()
+ fill (255, 112, 155, 70) //light pink, slightly transparent
+ rect (25, 0, 35, 200) // left vertical line 
+ rect (140, 0, 35, 200) //right vertical line
+ rect (0, 30, 200, 35) //top horizontal line
+ rect (0, 130, 200, 35) //bottom horizontal line
+  
+ //middle bear head 
+  bearHead(circleX, circleY); // middle bear head 
+
+//left bow on top of head 
+  rotate(-20)
+  bow(45, 135);
+
+//right bow on top of head 
+  rotate(40)
+  bow (145, 65)
+
+  ///////////////////////////////// 
+
+   Wallpaper 12: 
+
+  let circleX = 100
+  let circleY = circleX //100 
+  let circleS = circleX-50 //head size, 50
+
+  let bowX = 100
+  let bowY = bowX //100
+  let bowS = bowX-95 // 5 
+
+
+
+function setup_wallpaper(pWallpaper) {
+  pWallpaper.output_mode(GRID_WALLPAPER);
+  pWallpaper.resolution(NINE_PORTRAIT);
+  pWallpaper.show_guide(false); //set this to false when you're ready to print
+
+  //Grid settings
+  pWallpaper.grid_settings.cell_width  = 200;
+  pWallpaper.grid_settings.cell_height = 200;
+  pWallpaper.grid_settings.row_offset  = 0;
+
+}
+
+function wallpaper_background() {
+  // background(247, 200, 181); //light creamish skin tone colour
+  // background(255, 231, 209); //even lighter cream colour, for red checkered pattern
+  background(245, 218, 193);
+
+
+}  
+
+function my_symbol() { // do not rename this function. Treat this similarly to a Draw function
+ 
+  //checkered background, transparent  
+ noStroke()
+ fill (237, 36, 36, 70) //red of bow 
+ rect (25, 0, 35, 200) // left vertical line 
+ rect (140, 0, 35, 200) //right vertical line
+ rect (0, 30, 200, 35) //top horizontal line
+ rect (0, 130, 200, 35) //bottom horizontal line
+  
+ //middle bear head 
+  bearHead(circleX, circleY); // middle bear head 
+
+//left bow on top of head 
+  rotate(-20)
+  bow(45, 135);
+
+//right bow on top of head 
+  rotate(40)
+  bow (145, 65)
+
+
+  //your parameter variables go here!
+  let circleX = 100
+  let circleY = circleX //100 
+  let circleS = circleX-50 //head size, 50
+
+  let bowX = 100
+  let bowY = bowX //100
+  let bowS = bowX-95 // 5 
+
+ ///////////////////////////////// 
+
+   Wallpaper 13: 
+
+function setup_wallpaper(pWallpaper) {
+  pWallpaper.output_mode(GRID_WALLPAPER);
+  pWallpaper.resolution(NINE_PORTRAIT);
+  // pWallpaper.output_mode(DEVELOP_GLYPH);
+  // pWallpaper.resolution(FIT_TO_SCREEN);
+  pWallpaper.show_guide(false); //set this to false when you're ready to print
+
+  //Grid settings
+  pWallpaper.grid_settings.cell_width  = 180;
+  pWallpaper.grid_settings.cell_height = 200;
+  pWallpaper.grid_settings.row_offset  = 190;
+
+  angleMode(DEGREES)
+}
+
+function wallpaper_background() {
+  // background(247, 200, 181); //light creamish skin tone colour
+  // background(255, 231, 209); //even lighter cream colour, for red checkered pattern
+  background(245, 218, 193);
+
+
+}  
+
+function my_symbol() { // do not rename this function. Treat this similarly to a Draw function
+ 
+  //checkered background, transparent  
+ noStroke()
+ fill (255, 112, 155, 70) //light pink, slightly transparent
+ rect (25, 0, 35, 200) // left vertical line 
+ rect (140, 0, 35, 200) //right vertical line
+ rect (0, 30, 200, 35) //top horizontal line
+ rect (0, 130, 200, 35) //bottom horizontal line
+  
+ //DOUBLE BOWS FOR ALL THREE
+ //middle bear head 
+  bearHead(circleX, circleY); // middle bear head 
+
+  //top left bear head 
+  bearHead (50, 50,) // top left bear head 
+  bow(50, 50); // headbow of top left bear 
+
+  //bottom right bear head
+  bearHead (150, 150); // bottom right bear head 
+  bow (150, 150); //bow on top of head
+  
+  //left bow
+  rotate(-20)
+  bow(45, 135);
+
+//right bow
+  rotate(40)
+  bow (145, 65)
+
+ ///////////////////////////////// 
+
+   Wallpaper 14: 
+
+//your parameter variables go here!
+  let circleX = 100
+  let circleY = circleX //100 
+  let circleS = circleX-50 //head size, 50
+
+  let bowX = 100
+  let bowY = bowX //100
+  let bowS = bowX-95 // 5 
+
+
+
+function setup_wallpaper(pWallpaper) {
+  pWallpaper.output_mode(GRID_WALLPAPER);
+  pWallpaper.resolution(NINE_PORTRAIT);
+  // pWallpaper.output_mode(DEVELOP_GLYPH);
+  // pWallpaper.resolution(FIT_TO_SCREEN);
+  pWallpaper.show_guide(false); //set this to false when you're ready to print
+
+  //Grid settings
+  pWallpaper.grid_settings.cell_width  = 180;
+  pWallpaper.grid_settings.cell_height = 200;
+  pWallpaper.grid_settings.row_offset  = 180;
+
+  angleMode(DEGREES)
+}
+
+function wallpaper_background() {
+  // background(247, 200, 181); //light creamish skin tone colour
+  // background(255, 231, 209); //even lighter cream colour, for red checkered pattern
+  background(245, 218, 193);
+
+
+}  
+
+function my_symbol() { // do not rename this function. Treat this similarly to a Draw function
+ 
+  //checkered background, transparent  
+ noStroke()
+ fill (255, 112, 155, 70) //light pink, slightly transparent
+//  fill (237, 36, 36, 70) //red of bow 
+ rect (25, 0, 35, 200) // left vertical line 
+ rect (140, 0, 35, 200) //right vertical line
+ rect (0, 30, 200, 35) //top horizontal line
+ rect (0, 130, 200, 35) //bottom horizontal line
+  
+
+ //middle bear head 
+  bearHead(circleX, circleY); // middle bear head 
+  // bow(bowX, bowY); // headbow of middle bear 
+
+
+  //left bow
+  rotate(-20)
+  bow(45, 135);
+
+//right bow
+  rotate(40)
+  bow (145, 65)
+
+   ///////////////////////////////// 
+
+   Wallpaper 15:
+//your parameter variables go here!
+  let circleX = 100
+  let circleY = circleX //100 
+  let circleS = circleX-50 //head size, 50
+
+  let bowX = 100
+  let bowY = bowX //100
+  let bowS = bowX-95 // 5 
+
+
+
+function setup_wallpaper(pWallpaper) {
+  pWallpaper.output_mode(GRID_WALLPAPER);
+  pWallpaper.resolution(NINE_PORTRAIT);
+  // pWallpaper.output_mode(DEVELOP_GLYPH);
+  // pWallpaper.resolution(FIT_TO_SCREEN);
+  pWallpaper.show_guide(false); //set this to false when you're ready to print
+
+  //Grid settings
+  pWallpaper.grid_settings.cell_width  = 180;
+  pWallpaper.grid_settings.cell_height = 200;
+  pWallpaper.grid_settings.row_offset  = 180;
+
+  angleMode(DEGREES)
+}
+
+function wallpaper_background() {
+  // background(247, 200, 181); //light creamish skin tone colour
+  // background(255, 231, 209); //even lighter cream colour, for red checkered pattern
+  background(245, 218, 193);
+
+
+}  
+
+function my_symbol() { // do not rename this function. Treat this similarly to a Draw function
+ 
+  //checkered background, transparent  
+ noStroke()
+ fill (255, 112, 155, 70) //light pink, slightly transparent
+//  fill (237, 36, 36, 70) //red of bow 
+ rect (25, 0, 35, 200) // left vertical line 
+ rect (140, 0, 35, 200) //right vertical line
+ rect (0, 30, 200, 35) //top horizontal line
+ rect (0, 130, 200, 35) //bottom horizontal line
+  
+
+ //middle bear head 
+  bearHead(circleX, circleY); // middle bear head 
+
+  //left bow
+  rotate(-20)
+  bow(45, 135);
+
+//right bow 
+  rotate(40)
+  bow (145, 65)
+
+    ///////////////////////////////// 
+
+   Wallpaper 16:  
