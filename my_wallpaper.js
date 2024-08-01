@@ -29,22 +29,22 @@
  
   //control variables/parameters 
 
-  let pinkBackground = true //pink background with pink checkered pattern, if turned off changes to red checkered pattern + background colour 2 
+  let pinkBackground = false //pink background with pink checkered pattern, if turned off changes to red checkered pattern + background colour 2 
 
   let bearExist = 1 //lets middle, top left or bottom right bears exist
 
   let blush = true //controls if there is blush on the cheeks of bear or not
 
-  let triangularNose = false //controls if bear has an ellipse round nose or triangle nose 
+  let triangularNose = true //controls if bear has an ellipse round nose or triangle nose 
 
   let eyesOpen = true //controls if bear has open or closed eyes 
 
-  let bearDark = false //controls if the colour of the bear is dark or light
+  let bearDark = true //controls if the colour of the bear is dark or light
 
-  let bowSwitch = false //True = red, false= pink. controls the colours of the bow/switches them between red and pink. 
+  let bowSwitch = true //True = red, false= pink. controls the colours of the bow/switches them between red and pink. 
  
-  let bow1 = true //switches on head bow
-  let bow2 = false //switches on neck bow
+  let bow1 = false //switches on head bow
+  let bow2 = true //switches on neck bow
   let bow3 = false //switches on head and neck bow
 
 function setup_wallpaper(pWallpaper) {
@@ -53,7 +53,7 @@ function setup_wallpaper(pWallpaper) {
   pWallpaper.show_guide(false); //set this to false when you're ready to print
 
   //Grid settings
-  pWallpaper.grid_settings.cell_width  = 200;
+  pWallpaper.grid_settings.cell_width  = 180;
   pWallpaper.grid_settings.cell_height = 200;
   pWallpaper.grid_settings.row_offset  = 0;
 
