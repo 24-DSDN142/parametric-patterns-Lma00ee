@@ -10,23 +10,167 @@ Your final settings.txt will look something like this when you are finished:
 Wallpaper 1:
 
 //your parameter variables go here!
-let rect_width  = 20;
-let rect_height = 20;
-let paramter1 = 10;
-let paramter2 = true;
-let paramter3 = 50; 
-let paramter4 = 0; 
-let paramter5 = 60;
+  let circleX = 100 //circle on x-axis
+  let circleY = circleX //circle on y-axis, 100 
+  let circleS = circleX-50 //circle/head size, 50
+
+  let bowX = 100 //bow on x-axis
+  let bowY = bowX //bow on y-axis, 100
+  let bowCircle = 5 //bow circle/middle size
+
+  //colour variables 
+
+  let bgColour1 = ('#f7c8b5') //light pink background colour, swtiches on when pink checkered pattern
+  let bgColour2 = ('#f0ceb1') //lighter cream colour, switches on when red checkered pattern 
+
+  let blushPink = ('#f25060') //pink blush (for lighter brown bear )
+  let blushRed = ('#b51818') //red blush (for darker brown bear)
+
+  let bearFaceLightBrown = ('#cf9974') //light brown milk tea colour of the bear 
+  let bearFaceDarkBrown = ('#8f5935') //darker chocolate brown colour of the bear 
+
+  let innerEar1 = ('#b57659') //inner ear colour for light brown bear (lighter)
+  let innerEar2 = ('#5e361a') //inner ear colour for dark brown bear (darker)
+  
+  let lightBrownSnout = ('#f7d7ad') //snout colour for light brown bear (lighter)
+  let darkBrownSnout = ('#e0a880') //snout colour for dark brown bear (darker)
+
+  let bowRed = ('#d42f2f') //dark red bow colour (better for darker bear)  
+  let bowPink = ('#f74561') //pink bow colour (better for lighter bear)
+ 
+  //control variables/parameters 
+
+  let pinkBackground = true //pink background with pink checkered pattern, if turned off changes to red checkered pattern + background colour 2 
+
+  let bearExist = 1 //lets middle, top left or bottom right bears exist
+
+  let blush = true //controls if there is blush on the cheeks of bear or not
+
+  let triangularNose = true //controls if bear has an ellipse round nose or triangle nose 
+
+  let eyesOpen = true //controls if bear has open or closed eyes 
+
+  let bearDark = false //controls if the colour of the bear is dark or light
+
+  let bowSwitch = false //True = red, false= pink. controls the colours of the bow/switches them between red and pink. 
+ 
+  let bow1 = false //switches on head bow
+  let bow2 = false //switches on neck bow
+  let bow3 = true //switches on head and neck bow
 
 function setup_wallpaper(pWallpaper) {
   pWallpaper.output_mode(GRID_WALLPAPER);
-  pWallpaper.resolution(NINE_LANDSCAPE);
+  pWallpaper.resolution(NINE_PORTRAIT);
   pWallpaper.show_guide(false); //set this to false when you're ready to print
 
   //Grid settings
-  pWallpaper.grid_settings.cell_width  = 100;
-  pWallpaper.grid_settings.cell_height = 100;
-  pWallpaper.grid_settings.row_offset  = 50;
+  pWallpaper.grid_settings.cell_width  = 200;
+  pWallpaper.grid_settings.cell_height = 200;
+  pWallpaper.grid_settings.row_offset  = 0;
+
+  angleMode(DEGREES)
+}
+
+function wallpaper_background() {
+ if (pinkBackground) { 
+  background(bgColour1); //light pink (for pink checkered pattern)
+ }
+
+ else {
+background(bgColour2); //cream colour (for red checkered pattern)
+ }
+
+}  
+
+function my_symbol() { // do not rename this function. Treat this similarly to a Draw function
+
+//checkered background, transparent  
+ noStroke()
+ if (pinkBackground) {
+ fill (255, 112, 133, 70) //light pink, slightly transparent
+ }
+
+ else {
+fill (237, 36, 36, 70) //red, transparent 
+ }
+
+ rect (25, 0, 35, 200) //left vertical line 
+ rect (140, 0, 35, 200) //right vertical line
+ rect (0, 30, 200, 35) //top horizontal line
+ rect (0, 130, 200, 35) //bottom horizontal line
+
+
+  
+ if (bearExist == 1) {
+ //middle bear head 
+  bearHead (circleX, circleY); //100, 100
+
+ if (bow1) {
+  bow(bowX, bowY); //headbow of middle bear, 100, 100
+ }
+ else if (bow2) {
+  bow (bowX, bowY+50); //neckbow, 100, 150
+ }
+ else if (bow3) {
+  //both head and neck bow 
+  bow(bowX, bowY); //headbow of middle bear, 100, 100 
+  bow (bowX, bowY+50); //neckbow, 100, 150 
+ }
+
+else {
+
+}
+
+ }
+
+//
+
+ if (bearExist == 1) {
+  //top left bear head 
+  bearHead (50, 50) 
+ 
+  if (bow1) {
+  bow(bowX-50, bowY-50); //headbow of middle bear, 50, 50 
+ }
+ else if (bow2) {
+  bow (bowX-50, bowY); //neckbow, 50, 100
+ }
+ else if (bow3) {
+  //both the head and neck bow 
+  bow(bowX-50, bowY-50); //headbow of middle bear, 50, 50 
+  bow (bowX-50, bowY); //neckbow, 50, 100
+ }
+else {
+
+
+}
+
+ }
+
+//
+
+ if (bearExist == 1) {
+  //bottom right bear head
+  bearHead (150, 150); 
+
+ if (bow1) {
+  bow(bowX+50, bowY+50); //headbow of middle bear, 150, 150
+ }
+ else if (bow2) {
+  bow (bowX+50, bowY+100); //neckbow, 150, 200
+ }
+ else if (bow3) {
+  //both the head and neck bow 
+  bow(bowX+50, bowY+50); //headbow of middle bear, 150, 150 
+  bow (bowX+50, bowY+100); //neckbow, 150, 200
+ }
+else {
+
+
+}
+
+}
+
 }
 
 /////////////////////////////////
@@ -34,21 +178,1341 @@ function setup_wallpaper(pWallpaper) {
 Wallpaper 2:
 
 //your parameter variables go here!
-let rect_width  = 10;
-let rect_height = 10;
-let paramter1 = 20;
-let paramter2 = false;
-let paramter3 = 50; 
-let paramter4 = 80; 
-let paramter5 = 30;
+  let circleX = 100 //circle on x-axis
+  let circleY = circleX //circle on y-axis, 100 
+  let circleS = circleX-50 //circle/head size, 50
+
+  let bowX = 100 //bow on x-axis
+  let bowY = bowX //bow on y-axis, 100
+  let bowCircle = 5 //bow circle/middle size
+
+  //colour variables 
+
+  let bgColour1 = ('#f7c8b5') //light pink background colour, swtiches on when pink checkered pattern
+  let bgColour2 = ('#f0ceb1') //lighter cream colour, switches on when red checkered pattern 
+
+  let blushPink = ('#f25060') //pink blush (for lighter brown bear )
+  let blushRed = ('#b51818') //red blush (for darker brown bear)
+
+  let bearFaceLightBrown = ('#cf9974') //light brown milk tea colour of the bear 
+  let bearFaceDarkBrown = ('#8f5935') //darker chocolate brown colour of the bear 
+
+  let innerEar1 = ('#b57659') //inner ear colour for light brown bear (lighter)
+  let innerEar2 = ('#5e361a') //inner ear colour for dark brown bear (darker)
+  
+  let lightBrownSnout = ('#f7d7ad') //snout colour for light brown bear (lighter)
+  let darkBrownSnout = ('#e0a880') //snout colour for dark brown bear (darker)
+
+  let bowRed = ('#d42f2f') //dark red bow colour (better for darker bear)  
+  let bowPink = ('#f74561') //pink bow colour (better for lighter bear)
+ 
+  //control variables/parameters 
+
+  let pinkBackground = false //pink background with pink checkered pattern, if turned off changes to red checkered pattern + background colour 2 
+
+  let bearExist = 1 //lets middle, top left or bottom right bears exist
+
+  let blush = true //controls if there is blush on the cheeks of bear or not
+
+  let triangularNose = true //controls if bear has an ellipse round nose or triangle nose 
+
+  let eyesOpen = true //controls if bear has open or closed eyes 
+
+  let bearDark = true //controls if the colour of the bear is dark or light
+
+  let bowSwitch = true //True = red, false= pink. controls the colours of the bow/switches them between red and pink. 
+ 
+  let bow1 = false //switches on head bow
+  let bow2 = false //switches on neck bow
+  let bow3 = true //switches on head and neck bow
 
 function setup_wallpaper(pWallpaper) {
   pWallpaper.output_mode(GRID_WALLPAPER);
-  pWallpaper.resolution(NINE_LANDSCAPE);
+  pWallpaper.resolution(NINE_PORTRAIT);
   pWallpaper.show_guide(false); //set this to false when you're ready to print
 
   //Grid settings
-  pWallpaper.grid_settings.cell_width  = 100;
-  pWallpaper.grid_settings.cell_height = 100;
+  pWallpaper.grid_settings.cell_width  = 200;
+  pWallpaper.grid_settings.cell_height = 200;
   pWallpaper.grid_settings.row_offset  = 0;
+
+  angleMode(DEGREES)
+}
+
+function wallpaper_background() {
+ if (pinkBackground) { 
+  background(bgColour1); //light pink (for pink checkered pattern)
+ }
+
+ else {
+background(bgColour2); //cream colour (for red checkered pattern)
+ }
+
+}  
+
+function my_symbol() { // do not rename this function. Treat this similarly to a Draw function
+
+//checkered background, transparent  
+ noStroke()
+ if (pinkBackground) {
+ fill (255, 112, 133, 70) //light pink, slightly transparent
+ }
+
+ else {
+fill (237, 36, 36, 70) //red, transparent 
+ }
+
+ rect (25, 0, 35, 200) //left vertical line 
+ rect (140, 0, 35, 200) //right vertical line
+ rect (0, 30, 200, 35) //top horizontal line
+ rect (0, 130, 200, 35) //bottom horizontal line
+
+
+  
+ if (bearExist == 1) {
+ //middle bear head 
+  bearHead (circleX, circleY); //100, 100
+
+ if (bow1) {
+  bow(bowX, bowY); //headbow of middle bear, 100, 100
+ }
+ else if (bow2) {
+  bow (bowX, bowY+50); //neckbow, 100, 150
+ }
+ else if (bow3) {
+  //both head and neck bow 
+  bow(bowX, bowY); //headbow of middle bear, 100, 100 
+  bow (bowX, bowY+50); //neckbow, 100, 150 
+ }
+
+else {
+
+}
+
+ }
+
+//
+
+ if (bearExist == 1) {
+  //top left bear head 
+  bearHead (50, 50) 
+ 
+  if (bow1) {
+  bow(bowX-50, bowY-50); //headbow of middle bear, 50, 50 
+ }
+ else if (bow2) {
+  bow (bowX-50, bowY); //neckbow, 50, 100
+ }
+ else if (bow3) {
+  //both the head and neck bow 
+  bow(bowX-50, bowY-50); //headbow of middle bear, 50, 50 
+  bow (bowX-50, bowY); //neckbow, 50, 100
+ }
+else {
+
+
+}
+
+ }
+
+//
+
+ if (bearExist == 1) {
+  //bottom right bear head
+  bearHead (150, 150); 
+
+ if (bow1) {
+  bow(bowX+50, bowY+50); //headbow of middle bear, 150, 150
+ }
+ else if (bow2) {
+  bow (bowX+50, bowY+100); //neckbow, 150, 200
+ }
+ else if (bow3) {
+  //both the head and neck bow 
+  bow(bowX+50, bowY+50); //headbow of middle bear, 150, 150 
+  bow (bowX+50, bowY+100); //neckbow, 150, 200
+ }
+else {
+
+
+}
+
+}
+
+}
+
+/////////////////////////////////
+
+Wallpaper 3:
+
+//your parameter variables go here!
+  let circleX = 100 //circle on x-axis
+  let circleY = circleX //circle on y-axis, 100 
+  let circleS = circleX-50 //circle/head size, 50
+
+  let bowX = 100 //bow on x-axis
+  let bowY = bowX //bow on y-axis, 100
+  let bowCircle = 5 //bow circle/middle size
+
+  //colour variables 
+
+  let bgColour1 = ('#f7c8b5') //light pink background colour, swtiches on when pink checkered pattern
+  let bgColour2 = ('#f0ceb1') //lighter cream colour, switches on when red checkered pattern 
+
+  let blushPink = ('#f25060') //pink blush (for lighter brown bear )
+  let blushRed = ('#b51818') //red blush (for darker brown bear)
+
+  let bearFaceLightBrown = ('#cf9974') //light brown milk tea colour of the bear 
+  let bearFaceDarkBrown = ('#8f5935') //darker chocolate brown colour of the bear 
+
+  let innerEar1 = ('#b57659') //inner ear colour for light brown bear (lighter)
+  let innerEar2 = ('#5e361a') //inner ear colour for dark brown bear (darker)
+  
+  let lightBrownSnout = ('#f7d7ad') //snout colour for light brown bear (lighter)
+  let darkBrownSnout = ('#e0a880') //snout colour for dark brown bear (darker)
+
+  let bowRed = ('#d42f2f') //dark red bow colour (better for darker bear)  
+  let bowPink = ('#f74561') //pink bow colour (better for lighter bear)
+ 
+  //control variables/parameters 
+
+  let pinkBackground = false //pink background with pink checkered pattern, if turned off changes to red checkered pattern + background colour 2 
+
+  let bearExist = 1 //lets middle, top left or bottom right bears exist
+
+  let blush = true //controls if there is blush on the cheeks of bear or not
+
+  let triangularNose = true //controls if bear has an ellipse round nose or triangle nose 
+
+  let eyesOpen = true //controls if bear has open or closed eyes 
+
+  let bearDark = false //controls if the colour of the bear is dark or light
+
+  let bowSwitch = true //True = red, false= pink. controls the colours of the bow/switches them between red and pink. 
+ 
+  let bow1 = false //switches on head bow
+  let bow2 = false //switches on neck bow
+  let bow3 = true //switches on head and neck bow
+
+function setup_wallpaper(pWallpaper) {
+  pWallpaper.output_mode(GRID_WALLPAPER);
+  pWallpaper.resolution(NINE_PORTRAIT);
+  pWallpaper.show_guide(false); //set this to false when you're ready to print
+
+  //Grid settings
+  pWallpaper.grid_settings.cell_width  = 200;
+  pWallpaper.grid_settings.cell_height = 200;
+  pWallpaper.grid_settings.row_offset  = 0;
+
+  angleMode(DEGREES)
+}
+
+function wallpaper_background() {
+ if (pinkBackground) { 
+  background(bgColour1); //light pink (for pink checkered pattern)
+ }
+
+ else {
+background(bgColour2); //cream colour (for red checkered pattern)
+ }
+
+}  
+
+function my_symbol() { // do not rename this function. Treat this similarly to a Draw function
+
+//checkered background, transparent  
+ noStroke()
+ if (pinkBackground) {
+ fill (255, 112, 133, 70) //light pink, slightly transparent
+ }
+
+ else {
+fill (237, 36, 36, 70) //red, transparent 
+ }
+
+ rect (25, 0, 35, 200) //left vertical line 
+ rect (140, 0, 35, 200) //right vertical line
+ rect (0, 30, 200, 35) //top horizontal line
+ rect (0, 130, 200, 35) //bottom horizontal line
+
+
+  
+ if (bearExist == 1) {
+ //middle bear head 
+  bearHead (circleX, circleY); //100, 100
+
+ if (bow1) {
+  bow(bowX, bowY); //headbow of middle bear, 100, 100
+ }
+ else if (bow2) {
+  bow (bowX, bowY+50); //neckbow, 100, 150
+ }
+ else if (bow3) {
+  //both head and neck bow 
+  bow(bowX, bowY); //headbow of middle bear, 100, 100 
+  bow (bowX, bowY+50); //neckbow, 100, 150 
+ }
+
+else {
+
+}
+
+ }
+
+//
+
+ if (bearExist == 1) {
+  //top left bear head 
+  bearHead (50, 50) 
+ 
+  if (bow1) {
+  bow(bowX-50, bowY-50); //headbow of middle bear, 50, 50 
+ }
+ else if (bow2) {
+  bow (bowX-50, bowY); //neckbow, 50, 100
+ }
+ else if (bow3) {
+  //both the head and neck bow 
+  bow(bowX-50, bowY-50); //headbow of middle bear, 50, 50 
+  bow (bowX-50, bowY); //neckbow, 50, 100
+ }
+else {
+
+
+}
+
+ }
+
+//
+
+ if (bearExist == 1) {
+  //bottom right bear head
+  bearHead (150, 150); 
+
+ if (bow1) {
+  bow(bowX+50, bowY+50); //headbow of middle bear, 150, 150
+ }
+ else if (bow2) {
+  bow (bowX+50, bowY+100); //neckbow, 150, 200
+ }
+ else if (bow3) {
+  //both the head and neck bow 
+  bow(bowX+50, bowY+50); //headbow of middle bear, 150, 150 
+  bow (bowX+50, bowY+100); //neckbow, 150, 200
+ }
+else {
+
+
+}
+
+}
+
+}
+
+/////////////////////////////////
+
+Wallpaper 4:
+
+//your parameter variables go here!
+  let circleX = 100 //circle on x-axis
+  let circleY = circleX //circle on y-axis, 100 
+  let circleS = circleX-50 //circle/head size, 50
+
+  let bowX = 100 //bow on x-axis
+  let bowY = bowX //bow on y-axis, 100
+  let bowCircle = 5 //bow circle/middle size
+
+  //colour variables 
+
+  let bgColour1 = ('#f7c8b5') //light pink background colour, swtiches on when pink checkered pattern
+  let bgColour2 = ('#f0ceb1') //lighter cream colour, switches on when red checkered pattern 
+
+  let blushPink = ('#f25060') //pink blush (for lighter brown bear )
+  let blushRed = ('#b51818') //red blush (for darker brown bear)
+
+  let bearFaceLightBrown = ('#cf9974') //light brown milk tea colour of the bear 
+  let bearFaceDarkBrown = ('#8f5935') //darker chocolate brown colour of the bear 
+
+  let innerEar1 = ('#b57659') //inner ear colour for light brown bear (lighter)
+  let innerEar2 = ('#5e361a') //inner ear colour for dark brown bear (darker)
+  
+  let lightBrownSnout = ('#f7d7ad') //snout colour for light brown bear (lighter)
+  let darkBrownSnout = ('#e0a880') //snout colour for dark brown bear (darker)
+
+  let bowRed = ('#d42f2f') //dark red bow colour (better for darker bear)  
+  let bowPink = ('#f74561') //pink bow colour (better for lighter bear)
+ 
+  //control variables/parameters 
+
+  let pinkBackground = true //pink background with pink checkered pattern, if turned off changes to red checkered pattern + background colour 2 
+
+  let bearExist = 1 //lets middle, top left or bottom right bears exist
+
+  let blush = true //controls if there is blush on the cheeks of bear or not
+
+  let triangularNose = true //controls if bear has an ellipse round nose or triangle nose 
+
+  let eyesOpen = true //controls if bear has open or closed eyes 
+
+  let bearDark = false //controls if the colour of the bear is dark or light
+
+  let bowSwitch = true //True = red, false= pink. controls the colours of the bow/switches them between red and pink. 
+ 
+  let bow1 = true //switches on head bow
+  let bow2 = false //switches on neck bow
+  let bow3 = false //switches on head and neck bow
+
+function setup_wallpaper(pWallpaper) {
+  pWallpaper.output_mode(GRID_WALLPAPER);
+  pWallpaper.resolution(NINE_PORTRAIT);
+  pWallpaper.show_guide(false); //set this to false when you're ready to print
+
+  //Grid settings
+  pWallpaper.grid_settings.cell_width  = 200;
+  pWallpaper.grid_settings.cell_height = 200;
+  pWallpaper.grid_settings.row_offset  = 0;
+
+  angleMode(DEGREES)
+}
+
+function wallpaper_background() {
+ if (pinkBackground) { 
+  background(bgColour1); //light pink (for pink checkered pattern)
+ }
+
+ else {
+background(bgColour2); //cream colour (for red checkered pattern)
+ }
+
+}  
+
+function my_symbol() { // do not rename this function. Treat this similarly to a Draw function
+
+//checkered background, transparent  
+ noStroke()
+ if (pinkBackground) {
+ fill (255, 112, 133, 70) //light pink, slightly transparent
+ }
+
+ else {
+fill (237, 36, 36, 70) //red, transparent 
+ }
+
+ rect (25, 0, 35, 200) //left vertical line 
+ rect (140, 0, 35, 200) //right vertical line
+ rect (0, 30, 200, 35) //top horizontal line
+ rect (0, 130, 200, 35) //bottom horizontal line
+
+
+  
+ if (bearExist == 1) {
+ //middle bear head 
+  bearHead (circleX, circleY); //100, 100
+
+ if (bow1) {
+  bow(bowX, bowY); //headbow of middle bear, 100, 100
+ }
+ else if (bow2) {
+  bow (bowX, bowY+50); //neckbow, 100, 150
+ }
+ else if (bow3) {
+  //both head and neck bow 
+  bow(bowX, bowY); //headbow of middle bear, 100, 100 
+  bow (bowX, bowY+50); //neckbow, 100, 150 
+ }
+
+else {
+
+}
+
+ }
+
+//
+
+ if (bearExist == 1) {
+  //top left bear head 
+  bearHead (50, 50) 
+ 
+  if (bow1) {
+  bow(bowX-50, bowY-50); //headbow of middle bear, 50, 50 
+ }
+ else if (bow2) {
+  bow (bowX-50, bowY); //neckbow, 50, 100
+ }
+ else if (bow3) {
+  //both the head and neck bow 
+  bow(bowX-50, bowY-50); //headbow of middle bear, 50, 50 
+  bow (bowX-50, bowY); //neckbow, 50, 100
+ }
+else {
+
+
+}
+
+ }
+
+//
+
+ if (bearExist == 1) {
+  //bottom right bear head
+  bearHead (150, 150); 
+
+ if (bow1) {
+  bow(bowX+50, bowY+50); //headbow of middle bear, 150, 150
+ }
+ else if (bow2) {
+  bow (bowX+50, bowY+100); //neckbow, 150, 200
+ }
+ else if (bow3) {
+  //both the head and neck bow 
+  bow(bowX+50, bowY+50); //headbow of middle bear, 150, 150 
+  bow (bowX+50, bowY+100); //neckbow, 150, 200
+ }
+else {
+
+
+}
+
+}
+
+}
+
+/////////////////////////////////
+
+Wallpaper 5:
+
+//your parameter variables go here!
+  let circleX = 100 //circle on x-axis
+  let circleY = circleX //circle on y-axis, 100 
+  let circleS = circleX-50 //circle/head size, 50
+
+  let bowX = 100 //bow on x-axis
+  let bowY = bowX //bow on y-axis, 100
+  let bowCircle = 5 //bow circle/middle size
+
+  //colour variables 
+
+  let bgColour1 = ('#f7c8b5') //light pink background colour, swtiches on when pink checkered pattern
+  let bgColour2 = ('#f0ceb1') //lighter cream colour, switches on when red checkered pattern 
+
+  let blushPink = ('#f25060') //pink blush (for lighter brown bear )
+  let blushRed = ('#b51818') //red blush (for darker brown bear)
+
+  let bearFaceLightBrown = ('#cf9974') //light brown milk tea colour of the bear 
+  let bearFaceDarkBrown = ('#8f5935') //darker chocolate brown colour of the bear 
+
+  let innerEar1 = ('#b57659') //inner ear colour for light brown bear (lighter)
+  let innerEar2 = ('#5e361a') //inner ear colour for dark brown bear (darker)
+  
+  let lightBrownSnout = ('#f7d7ad') //snout colour for light brown bear (lighter)
+  let darkBrownSnout = ('#e0a880') //snout colour for dark brown bear (darker)
+
+  let bowRed = ('#d42f2f') //dark red bow colour (better for darker bear)  
+  let bowPink = ('#f74561') //pink bow colour (better for lighter bear)
+ 
+  //control variables/parameters 
+
+  let pinkBackground = false //pink background with pink checkered pattern, if turned off changes to red checkered pattern + background colour 2 
+
+  let bearExist = 1 //lets middle, top left or bottom right bears exist
+
+  let blush = true //controls if there is blush on the cheeks of bear or not
+
+  let triangularNose = true //controls if bear has an ellipse round nose or triangle nose 
+
+  let eyesOpen = true //controls if bear has open or closed eyes 
+
+  let bearDark = true //controls if the colour of the bear is dark or light
+
+  let bowSwitch = true //True = red, false= pink. controls the colours of the bow/switches them between red and pink. 
+ 
+  let bow1 = false //switches on head bow
+  let bow2 = true //switches on neck bow
+  let bow3 = false //switches on head and neck bow
+
+function setup_wallpaper(pWallpaper) {
+  pWallpaper.output_mode(GRID_WALLPAPER);
+  pWallpaper.resolution(NINE_PORTRAIT);
+  pWallpaper.show_guide(false); //set this to false when you're ready to print
+
+  //Grid settings
+  pWallpaper.grid_settings.cell_width  = 180;
+  pWallpaper.grid_settings.cell_height = 200;
+  pWallpaper.grid_settings.row_offset  = 0;
+
+  angleMode(DEGREES)
+}
+
+function wallpaper_background() {
+ if (pinkBackground) { 
+  background(bgColour1); //light pink (for pink checkered pattern)
+ }
+
+ else {
+background(bgColour2); //cream colour (for red checkered pattern)
+ }
+
+}  
+
+function my_symbol() { // do not rename this function. Treat this similarly to a Draw function
+
+//checkered background, transparent  
+ noStroke()
+ if (pinkBackground) {
+ fill (255, 112, 133, 70) //light pink, slightly transparent
+ }
+
+ else {
+fill (237, 36, 36, 70) //red, transparent 
+ }
+
+ rect (25, 0, 35, 200) //left vertical line 
+ rect (140, 0, 35, 200) //right vertical line
+ rect (0, 30, 200, 35) //top horizontal line
+ rect (0, 130, 200, 35) //bottom horizontal line
+
+
+  
+ if (bearExist == 1) {
+ //middle bear head 
+  bearHead (circleX, circleY); //100, 100
+
+ if (bow1) {
+  bow(bowX, bowY); //headbow of middle bear, 100, 100
+ }
+ else if (bow2) {
+  bow (bowX, bowY+50); //neckbow, 100, 150
+ }
+ else if (bow3) {
+  //both head and neck bow 
+  bow(bowX, bowY); //headbow of middle bear, 100, 100 
+  bow (bowX, bowY+50); //neckbow, 100, 150 
+ }
+
+else {
+
+}
+
+ }
+
+//
+
+ if (bearExist == 2) {
+  //top left bear head 
+  bearHead (50, 50) 
+ 
+  if (bow1) {
+  bow(bowX-50, bowY-50); //headbow of middle bear, 50, 50 
+ }
+ else if (bow2) {
+  bow (bowX-50, bowY); //neckbow, 50, 100
+ }
+ else if (bow3) {
+  //both the head and neck bow 
+  bow(bowX-50, bowY-50); //headbow of middle bear, 50, 50 
+  bow (bowX-50, bowY); //neckbow, 50, 100
+ }
+else {
+
+
+}
+
+ }
+
+//
+
+ if (bearExist == 2) {
+  //bottom right bear head
+  bearHead (150, 150); 
+
+ if (bow1) {
+  bow(bowX+50, bowY+50); //headbow of middle bear, 150, 150
+ }
+ else if (bow2) {
+  bow (bowX+50, bowY+100); //neckbow, 150, 200
+ }
+ else if (bow3) {
+  //both the head and neck bow 
+  bow(bowX+50, bowY+50); //headbow of middle bear, 150, 150 
+  bow (bowX+50, bowY+100); //neckbow, 150, 200
+ }
+else {
+
+
+}
+
+}
+
+}
+
+/////////////////////////////////
+
+Wallpaper 6:
+
+//your parameter variables go here!
+  let circleX = 100 //circle on x-axis
+  let circleY = circleX //circle on y-axis, 100 
+  let circleS = circleX-50 //circle/head size, 50
+
+  let bowX = 100 //bow on x-axis
+  let bowY = bowX //bow on y-axis, 100
+  let bowCircle = 5 //bow circle/middle size
+
+  //colour variables 
+
+  let bgColour1 = ('#f7c8b5') //light pink background colour, swtiches on when pink checkered pattern
+  let bgColour2 = ('#f0ceb1') //lighter cream colour, switches on when red checkered pattern 
+
+  let blushPink = ('#f25060') //pink blush (for lighter brown bear )
+  let blushRed = ('#b51818') //red blush (for darker brown bear)
+
+  let bearFaceLightBrown = ('#cf9974') //light brown milk tea colour of the bear 
+  let bearFaceDarkBrown = ('#8f5935') //darker chocolate brown colour of the bear 
+
+  let innerEar1 = ('#b57659') //inner ear colour for light brown bear (lighter)
+  let innerEar2 = ('#5e361a') //inner ear colour for dark brown bear (darker)
+  
+  let lightBrownSnout = ('#f7d7ad') //snout colour for light brown bear (lighter)
+  let darkBrownSnout = ('#e0a880') //snout colour for dark brown bear (darker)
+
+  let bowRed = ('#d42f2f') //dark red bow colour (better for darker bear)  
+  let bowPink = ('#f74561') //pink bow colour (better for lighter bear)
+ 
+  //control variables/parameters 
+
+  let pinkBackground = true //pink background with pink checkered pattern, if turned off changes to red checkered pattern + background colour 2 
+
+  let bearExist = 1 //lets middle, top left or bottom right bears exist
+
+  let blush = true //controls if there is blush on the cheeks of bear or not
+
+  let triangularNose = true //controls if bear has an ellipse round nose or triangle nose 
+
+  let eyesOpen = true //controls if bear has open or closed eyes 
+
+  let bearDark = false //controls if the colour of the bear is dark or light
+
+  let bowSwitch = false //True = red, false= pink. controls the colours of the bow/switches them between red and pink. 
+ 
+  let bow1 = true //switches on head bow
+  let bow2 = false //switches on neck bow
+  let bow3 = false //switches on head and neck bow
+
+function setup_wallpaper(pWallpaper) {
+  pWallpaper.output_mode(GRID_WALLPAPER);
+  pWallpaper.resolution(NINE_PORTRAIT);
+  pWallpaper.show_guide(false); //set this to false when you're ready to print
+
+  //Grid settings
+  pWallpaper.grid_settings.cell_width  = 200;
+  pWallpaper.grid_settings.cell_height = 200;
+  pWallpaper.grid_settings.row_offset  = 0;
+
+  angleMode(DEGREES)
+}
+
+function wallpaper_background() {
+ if (pinkBackground) { 
+  background(bgColour1); //light pink (for pink checkered pattern)
+ }
+
+ else {
+background(bgColour2); //cream colour (for red checkered pattern)
+ }
+
+}  
+
+function my_symbol() { // do not rename this function. Treat this similarly to a Draw function
+
+//checkered background, transparent  
+ noStroke()
+ if (pinkBackground) {
+ fill (255, 112, 133, 70) //light pink, slightly transparent
+ }
+
+ else {
+fill (237, 36, 36, 70) //red, transparent 
+ }
+
+ rect (25, 0, 35, 200) //left vertical line 
+ rect (140, 0, 35, 200) //right vertical line
+ rect (0, 30, 200, 35) //top horizontal line
+ rect (0, 130, 200, 35) //bottom horizontal line
+
+
+  
+ if (bearExist == 1) {
+ //middle bear head 
+  bearHead (circleX, circleY); //100, 100
+
+ if (bow1) {
+  bow(bowX, bowY); //headbow of middle bear, 100, 100
+ }
+ else if (bow2) {
+  bow (bowX, bowY+50); //neckbow, 100, 150
+ }
+ else if (bow3) {
+  //both head and neck bow 
+  bow(bowX, bowY); //headbow of middle bear, 100, 100 
+  bow (bowX, bowY+50); //neckbow, 100, 150 
+ }
+
+else {
+
+}
+
+ }
+
+//
+
+ if (bearExist == 2) {
+  //top left bear head 
+  bearHead (50, 50) 
+ 
+  if (bow1) {
+  bow(bowX-50, bowY-50); //headbow of middle bear, 50, 50 
+ }
+ else if (bow2) {
+  bow (bowX-50, bowY); //neckbow, 50, 100
+ }
+ else if (bow3) {
+  //both the head and neck bow 
+  bow(bowX-50, bowY-50); //headbow of middle bear, 50, 50 
+  bow (bowX-50, bowY); //neckbow, 50, 100
+ }
+else {
+
+
+}
+
+ }
+
+//
+
+ if (bearExist == 2) {
+  //bottom right bear head
+  bearHead (150, 150); 
+
+ if (bow1) {
+  bow(bowX+50, bowY+50); //headbow of middle bear, 150, 150
+ }
+ else if (bow2) {
+  bow (bowX+50, bowY+100); //neckbow, 150, 200
+ }
+ else if (bow3) {
+  //both the head and neck bow 
+  bow(bowX+50, bowY+50); //headbow of middle bear, 150, 150 
+  bow (bowX+50, bowY+100); //neckbow, 150, 200
+ }
+else {
+
+
+}
+
+}
+
+}
+
+/////////////////////////////////
+
+Wallpaper 7:
+
+//your parameter variables go here!
+  let circleX = 100 //circle on x-axis
+  let circleY = circleX //circle on y-axis, 100 
+  let circleS = circleX-50 //circle/head size, 50
+
+  let bowX = 100 //bow on x-axis
+  let bowY = bowX //bow on y-axis, 100
+  let bowCircle = 5 //bow circle/middle size
+
+  //colour variables 
+
+  let bgColour1 = ('#f7c8b5') //light pink background colour, swtiches on when pink checkered pattern
+  let bgColour2 = ('#f0ceb1') //lighter cream colour, switches on when red checkered pattern 
+
+  let blushPink = ('#f25060') //pink blush (for lighter brown bear )
+  let blushRed = ('#b51818') //red blush (for darker brown bear)
+
+  let bearFaceLightBrown = ('#cf9974') //light brown milk tea colour of the bear 
+  let bearFaceDarkBrown = ('#8f5935') //darker chocolate brown colour of the bear 
+
+  let innerEar1 = ('#b57659') //inner ear colour for light brown bear (lighter)
+  let innerEar2 = ('#5e361a') //inner ear colour for dark brown bear (darker)
+  
+  let lightBrownSnout = ('#f7d7ad') //snout colour for light brown bear (lighter)
+  let darkBrownSnout = ('#e0a880') //snout colour for dark brown bear (darker)
+
+  let bowRed = ('#d42f2f') //dark red bow colour (better for darker bear)  
+  let bowPink = ('#f74561') //pink bow colour (better for lighter bear)
+ 
+  //control variables/parameters 
+
+  let pinkBackground = true //pink background with pink checkered pattern, if turned off changes to red checkered pattern + background colour 2 
+
+  let bearExist = 1 //lets middle, top left or bottom right bears exist
+
+  let blush = false //controls if there is blush on the cheeks of bear or not
+
+  let triangularNose = false //controls if bear has an ellipse round nose or triangle nose 
+
+  let eyesOpen = false //controls if bear has open or closed eyes 
+
+  let bearDark = false //controls if the colour of the bear is dark or light
+
+  let bowSwitch = false //True = red, false= pink. controls the colours of the bow/switches them between red and pink. 
+ 
+  let bow1 = false //switches on head bow
+  let bow2 = false //switches on neck bow
+  let bow3 = false //switches on head and neck bow
+
+function setup_wallpaper(pWallpaper) {
+  pWallpaper.output_mode(GRID_WALLPAPER);
+  pWallpaper.resolution(NINE_PORTRAIT);
+  pWallpaper.show_guide(false); //set this to false when you're ready to print
+
+  //Grid settings
+  pWallpaper.grid_settings.cell_width  = 180;
+  pWallpaper.grid_settings.cell_height = 200;
+  pWallpaper.grid_settings.row_offset  = 0;
+
+  angleMode(DEGREES)
+}
+
+function wallpaper_background() {
+ if (pinkBackground) { 
+  background(bgColour1); //light pink (for pink checkered pattern)
+ }
+
+ else {
+background(bgColour2); //cream colour (for red checkered pattern)
+ }
+
+}  
+
+function my_symbol() { // do not rename this function. Treat this similarly to a Draw function
+
+//checkered background, transparent  
+ noStroke()
+ if (pinkBackground) {
+ fill (255, 112, 133, 70) //light pink, slightly transparent
+ }
+
+ else {
+fill (237, 36, 36, 70) //red, transparent 
+ }
+
+ rect (25, 0, 35, 200) //left vertical line 
+ rect (140, 0, 35, 200) //right vertical line
+ rect (0, 30, 200, 35) //top horizontal line
+ rect (0, 130, 200, 35) //bottom horizontal line
+
+
+  
+ if (bearExist == 1) {
+ //middle bear head 
+  bearHead (circleX, circleY); //100, 100
+
+ if (bow1) {
+  bow(bowX, bowY); //headbow of middle bear, 100, 100
+ }
+ else if (bow2) {
+  bow (bowX, bowY+50); //neckbow, 100, 150
+ }
+ else if (bow3) {
+  //both head and neck bow 
+  bow(bowX, bowY); //headbow of middle bear, 100, 100 
+  bow (bowX, bowY+50); //neckbow, 100, 150 
+ }
+
+else {
+
+}
+
+ }
+
+//
+
+ if (bearExist == 2) {
+  //top left bear head 
+  bearHead (50, 50) 
+ 
+  if (bow1) {
+  bow(bowX-50, bowY-50); //headbow of middle bear, 50, 50 
+ }
+ else if (bow2) {
+  bow (bowX-50, bowY); //neckbow, 50, 100
+ }
+ else if (bow3) {
+  //both the head and neck bow 
+  bow(bowX-50, bowY-50); //headbow of middle bear, 50, 50 
+  bow (bowX-50, bowY); //neckbow, 50, 100
+ }
+else {
+
+
+}
+
+ }
+
+//
+
+ if (bearExist == 2) {
+  //bottom right bear head
+  bearHead (150, 150); 
+
+ if (bow1) {
+  bow(bowX+50, bowY+50); //headbow of middle bear, 150, 150
+ }
+ else if (bow2) {
+  bow (bowX+50, bowY+100); //neckbow, 150, 200
+ }
+ else if (bow3) {
+  //both the head and neck bow 
+  bow(bowX+50, bowY+50); //headbow of middle bear, 150, 150 
+  bow (bowX+50, bowY+100); //neckbow, 150, 200
+ }
+else {
+
+
+}
+
+}
+
+}
+
+/////////////////////////////////
+
+Wallpaper 8:
+
+//your parameter variables go here!
+  let circleX = 100 //circle on x-axis
+  let circleY = circleX //circle on y-axis, 100 
+  let circleS = circleX-50 //circle/head size, 50
+
+  let bowX = 100 //bow on x-axis
+  let bowY = bowX //bow on y-axis, 100
+  let bowCircle = 5 //bow circle/middle size
+
+  //colour variables 
+
+  let bgColour1 = ('#f7c8b5') //light pink background colour, swtiches on when pink checkered pattern
+  let bgColour2 = ('#f0ceb1') //lighter cream colour, switches on when red checkered pattern 
+
+  let blushPink = ('#f25060') //pink blush (for lighter brown bear )
+  let blushRed = ('#b51818') //red blush (for darker brown bear)
+
+  let bearFaceLightBrown = ('#cf9974') //light brown milk tea colour of the bear 
+  let bearFaceDarkBrown = ('#8f5935') //darker chocolate brown colour of the bear 
+
+  let innerEar1 = ('#b57659') //inner ear colour for light brown bear (lighter)
+  let innerEar2 = ('#5e361a') //inner ear colour for dark brown bear (darker)
+  
+  let lightBrownSnout = ('#f7d7ad') //snout colour for light brown bear (lighter)
+  let darkBrownSnout = ('#e0a880') //snout colour for dark brown bear (darker)
+
+  let bowRed = ('#d42f2f') //dark red bow colour (better for darker bear)  
+  let bowPink = ('#f74561') //pink bow colour (better for lighter bear)
+ 
+  //control variables/parameters 
+
+  let pinkBackground = false //pink background with pink checkered pattern, if turned off changes to red checkered pattern + background colour 2 
+
+  let bearExist = 1 //lets middle, top left or bottom right bears exist
+
+  let blush = false //controls if there is blush on the cheeks of bear or not
+
+  let triangularNose = false //controls if bear has an ellipse round nose or triangle nose 
+
+  let eyesOpen = true //controls if bear has open or closed eyes 
+
+  let bearDark = false //controls if the colour of the bear is dark or light
+
+  let bowSwitch = false //True = red, false= pink. controls the colours of the bow/switches them between red and pink. 
+ 
+  let bow1 = true //switches on head bow
+  let bow2 = false //switches on neck bow
+  let bow3 = false //switches on head and neck bow
+
+function setup_wallpaper(pWallpaper) {
+  pWallpaper.output_mode(GRID_WALLPAPER);
+  pWallpaper.resolution(NINE_PORTRAIT);
+  pWallpaper.show_guide(false); //set this to false when you're ready to print
+
+  //Grid settings
+  pWallpaper.grid_settings.cell_width  = 200;
+  pWallpaper.grid_settings.cell_height = 200;
+  pWallpaper.grid_settings.row_offset  = 0;
+
+  angleMode(DEGREES)
+}
+
+function wallpaper_background() {
+ if (pinkBackground) { 
+  background(bgColour1); //light pink (for pink checkered pattern)
+ }
+
+ else {
+background(bgColour2); //cream colour (for red checkered pattern)
+ }
+
+}  
+
+function my_symbol() { // do not rename this function. Treat this similarly to a Draw function
+
+//checkered background, transparent  
+ noStroke()
+ if (pinkBackground) {
+ fill (255, 112, 133, 70) //light pink, slightly transparent
+ }
+
+ else {
+fill (237, 36, 36, 70) //red, transparent 
+ }
+
+ rect (25, 0, 35, 200) //left vertical line 
+ rect (140, 0, 35, 200) //right vertical line
+ rect (0, 30, 200, 35) //top horizontal line
+ rect (0, 130, 200, 35) //bottom horizontal line
+
+
+  
+ if (bearExist == 2) {
+ //middle bear head 
+  bearHead (circleX, circleY); //100, 100
+
+ if (bow1) {
+  bow(bowX, bowY); //headbow of middle bear, 100, 100
+ }
+ else if (bow2) {
+  bow (bowX, bowY+50); //neckbow, 100, 150
+ }
+ else if (bow3) {
+  //both head and neck bow 
+  bow(bowX, bowY); //headbow of middle bear, 100, 100 
+  bow (bowX, bowY+50); //neckbow, 100, 150 
+ }
+
+else {
+
+}
+
+ }
+
+//
+
+ if (bearExist == 1) {
+  //top left bear head 
+  bearHead (50, 50) 
+ 
+  if (bow1) {
+  bow(bowX-50, bowY-50); //headbow of middle bear, 50, 50 
+ }
+ else if (bow2) {
+  bow (bowX-50, bowY); //neckbow, 50, 100
+ }
+ else if (bow3) {
+  //both the head and neck bow 
+  bow(bowX-50, bowY-50); //headbow of middle bear, 50, 50 
+  bow (bowX-50, bowY); //neckbow, 50, 100
+ }
+else {
+
+
+}
+
+ }
+
+//
+
+ if (bearExist == 1) {
+  //bottom right bear head
+  bearHead (150, 150); 
+
+ if (bow1) {
+  bow(bowX+50, bowY+50); //headbow of middle bear, 150, 150
+ }
+ else if (bow2) {
+  bow (bowX+50, bowY+100); //neckbow, 150, 200
+ }
+ else if (bow3) {
+  //both the head and neck bow 
+  bow(bowX+50, bowY+50); //headbow of middle bear, 150, 150 
+  bow (bowX+50, bowY+100); //neckbow, 150, 200
+ }
+else {
+
+
+}
+
+}
+
+}
+
+/////////////////////////////////
+
+Wallpaper 9:
+
+//your parameter variables go here!
+  let circleX = 100 //circle on x-axis
+  let circleY = circleX //circle on y-axis, 100 
+  let circleS = circleX-50 //circle/head size, 50
+
+  let bowX = 100 //bow on x-axis
+  let bowY = bowX //bow on y-axis, 100
+  let bowCircle = 5 //bow circle/middle size
+
+  //colour variables 
+
+  let bgColour1 = ('#f7c8b5') //light pink background colour, swtiches on when pink checkered pattern
+  let bgColour2 = ('#f0ceb1') //lighter cream colour, switches on when red checkered pattern 
+
+  let blushPink = ('#f25060') //pink blush (for lighter brown bear )
+  let blushRed = ('#b51818') //red blush (for darker brown bear)
+
+  let bearFaceLightBrown = ('#cf9974') //light brown milk tea colour of the bear 
+  let bearFaceDarkBrown = ('#8f5935') //darker chocolate brown colour of the bear 
+
+  let innerEar1 = ('#b57659') //inner ear colour for light brown bear (lighter)
+  let innerEar2 = ('#5e361a') //inner ear colour for dark brown bear (darker)
+  
+  let lightBrownSnout = ('#f7d7ad') //snout colour for light brown bear (lighter)
+  let darkBrownSnout = ('#e0a880') //snout colour for dark brown bear (darker)
+
+  let bowRed = ('#d42f2f') //dark red bow colour (better for darker bear)  
+  let bowPink = ('#f74561') //pink bow colour (better for lighter bear)
+ 
+  //control variables/parameters 
+
+  let pinkBackground = true //pink background with pink checkered pattern, if turned off changes to red checkered pattern + background colour 2 
+
+  let bearExist = 1 //lets middle, top left or bottom right bears exist
+
+  let blush = false //controls if there is blush on the cheeks of bear or not
+
+  let triangularNose = false //controls if bear has an ellipse round nose or triangle nose 
+
+  let eyesOpen = true //controls if bear has open or closed eyes 
+
+  let bearDark = true //controls if the colour of the bear is dark or light
+
+  let bowSwitch = false //True = red, false= pink. controls the colours of the bow/switches them between red and pink. 
+ 
+  let bow1 = true //switches on head bow
+  let bow2 = false //switches on neck bow
+  let bow3 = false //switches on head and neck bow
+
+function setup_wallpaper(pWallpaper) {
+  pWallpaper.output_mode(GRID_WALLPAPER);
+  pWallpaper.resolution(NINE_PORTRAIT);
+  pWallpaper.show_guide(false); //set this to false when you're ready to print
+
+  //Grid settings
+  pWallpaper.grid_settings.cell_width  = 200;
+  pWallpaper.grid_settings.cell_height = 200;
+  pWallpaper.grid_settings.row_offset  = 0;
+
+  angleMode(DEGREES)
+}
+
+function wallpaper_background() {
+ if (pinkBackground) { 
+  background(bgColour1); //light pink (for pink checkered pattern)
+ }
+
+ else {
+background(bgColour2); //cream colour (for red checkered pattern)
+ }
+
+}  
+
+function my_symbol() { // do not rename this function. Treat this similarly to a Draw function
+
+//checkered background, transparent  
+ noStroke()
+ if (pinkBackground) {
+ fill (255, 112, 133, 70) //light pink, slightly transparent
+ }
+
+ else {
+fill (237, 36, 36, 70) //red, transparent 
+ }
+
+ rect (25, 0, 35, 200) //left vertical line 
+ rect (140, 0, 35, 200) //right vertical line
+ rect (0, 30, 200, 35) //top horizontal line
+ rect (0, 130, 200, 35) //bottom horizontal line
+
+
+  
+ if (bearExist == 1) {
+ //middle bear head 
+  bearHead (circleX, circleY); //100, 100
+
+ if (bow1) {
+  bow(bowX, bowY); //headbow of middle bear, 100, 100
+ }
+ else if (bow2) {
+  bow (bowX, bowY+50); //neckbow, 100, 150
+ }
+ else if (bow3) {
+  //both head and neck bow 
+  bow(bowX, bowY); //headbow of middle bear, 100, 100 
+  bow (bowX, bowY+50); //neckbow, 100, 150 
+ }
+
+else {
+
+}
+
+ }
+
+//
+
+ if (bearExist == 2) {
+  //top left bear head 
+  bearHead (50, 50) 
+ 
+  if (bow1) {
+  bow(bowX-50, bowY-50); //headbow of middle bear, 50, 50 
+ }
+ else if (bow2) {
+  bow (bowX-50, bowY); //neckbow, 50, 100
+ }
+ else if (bow3) {
+  //both the head and neck bow 
+  bow(bowX-50, bowY-50); //headbow of middle bear, 50, 50 
+  bow (bowX-50, bowY); //neckbow, 50, 100
+ }
+else {
+
+
+}
+
+ }
+
+//
+
+ if (bearExist == 2) {
+  //bottom right bear head
+  bearHead (150, 150); 
+
+ if (bow1) {
+  bow(bowX+50, bowY+50); //headbow of middle bear, 150, 150
+ }
+ else if (bow2) {
+  bow (bowX+50, bowY+100); //neckbow, 150, 200
+ }
+ else if (bow3) {
+  //both the head and neck bow 
+  bow(bowX+50, bowY+50); //headbow of middle bear, 150, 150 
+  bow (bowX+50, bowY+100); //neckbow, 150, 200
+ }
+else {
+
+
+}
+
+}
+
 }
